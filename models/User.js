@@ -68,7 +68,43 @@ User.prototype.validate = function() {
                 this.errors.push("This email is already being used.");
             };
         };
-        
+
         resolve();
     });
 };
+
+User.prototype.login = function() {
+    return new Promise((resolve, reject) => {
+        this.cleanup();
+        usersCollection.findOne({ email: this.data.email })
+        .then((attemptedUser) => {
+            if (attemptedUser && bcrypt.compareSync(this.data.password, attemptedUser.password)) {
+                this.data = attemptedUser;
+                resolve("Congrats!");
+            } else {
+                reject("Invalid username or password.");
+            }
+        }).catch(function() {
+            reject("Please try again later.");
+        });
+    });
+};
+
+User.prototype.register = function() {
+    return new Promise(async (resolve, reject) => {
+        this.cleanup();
+        await this.validate();
+
+        if (!this.errors.length) {
+            // hash user password
+            let salt = bcrypt.genSaltSync(10);
+            this.data.password = bcrypt.hashSync(this.data.password, salt);
+            await usersCollection.insertOne(this.data);
+            resolve();
+        } else {
+            reject(this.errors);
+        }
+    });
+};
+
+module.exports = User;

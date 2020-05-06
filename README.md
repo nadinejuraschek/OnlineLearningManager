@@ -11,6 +11,5 @@ As a motivated lifelong learner, I tend to jump at every opportunity to learn so
     * express
     * dotenv
     * mongodb
-    * md5
     * bcrypt
     * validator
