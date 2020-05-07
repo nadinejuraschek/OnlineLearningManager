@@ -1,8 +1,25 @@
 /*******************************************
  GENERAL
 *******************************************/
+html,
+body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .wrapper {
-    padding: 2rem;
+    padding: 4rem 0 1.5rem;
+
+    position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+}
+
+.inside-wrapper {
+    min-height: 100%;
 
     align-items: center;
     display: flex;
@@ -11,18 +28,22 @@
 }
 
 .content {
-    width: 100%;
-
-    padding: 1rem;
+    padding: 4rem;
     margin: 1rem auto;
+
+    width: 100%;
 }
+
  .primary-title {
-    margin-botton: 2rem;
+    margin: 2rem auto;
 }
 
 /*******************************************
  NAVBAR
 *******************************************/
+nav {
+    height: 4rem;
+}
 
 /*******************************************
  HOME
@@ -97,18 +118,22 @@ footer a:hover {
     .submit-btn {
         border: none;
         border-radius: 0.25rem;
+        display: block;
         font-size: 1.25rem;
-        margin: 0.5rem;
         padding: 1rem;
         width: 20rem;
 }
+
 .input-field {
     background-color: #63C87320;
     box-shadow: 1px 1px 8px #ebebeb;
+    margin: 0.75rem auto;
 }
+
 .submit-btn {
     background-color: #63C873;
     box-shadow: 1px 1px 8px #ebebeb;
     color: #ffffff;
+    margin: 2rem auto;
 }
 
