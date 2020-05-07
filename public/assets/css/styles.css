@@ -9,11 +9,15 @@
     flex-direction: column;
     justify-content: center;
 }
+
 .content {
     width: 100%;
 
     padding: 1rem;
     margin: 1rem auto;
+}
+ .primary-title {
+    margin-botton: 2rem;
 }
 
 /*******************************************
@@ -41,6 +45,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 .info {
     align-items: center;
     display: flex;
@@ -48,10 +53,12 @@
 
     width: 25%;
 }
+
 .progress {
     background-color: #999999;
     width: 25%;
 }
+
 .study-time {
     text-align: center;
     width: 10%;
@@ -82,3 +89,26 @@ footer a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
+
+/*******************************************
+ LOGIN / REGISTER
+*******************************************/
+.input-field, 
+    .submit-btn {
+        border: none;
+        border-radius: 0.25rem;
+        font-size: 1.25rem;
+        margin: 0.5rem;
+        padding: 1rem;
+        width: 20rem;
+}
+.input-field {
+    background-color: #63C87320;
+    box-shadow: 1px 1px 8px #ebebeb;
+}
+.submit-btn {
+    background-color: #63C873;
+    box-shadow: 1px 1px 8px #ebebeb;
+    color: #ffffff;
+}
+
