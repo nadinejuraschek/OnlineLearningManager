@@ -4,7 +4,7 @@
   "description": "### Motivation As a motivated lifelong learner, I tend to jump at every opportunity to learn something new and ultimately ended up having started multiple online tutorials and courses on various platforms. While my progress is being tracked on each platform, I started to wish there was a way for me to track all my progress in one single app.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon db"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,7 @@
   "homepage": "https://github.com/nadinejuraschek/OnlineLearningManager#readme",
   "dependencies": {
     "bcrypt": "^4.0.1",
+    "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.2",

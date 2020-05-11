@@ -5,9 +5,14 @@
       Online Learning Manager
     </a>
     <form class="form-inline">
+      <% if (!user) { %>
         <a href=/login>
-            <img src="/assets/icons/log-in.svg" alt="Log In">
-            <!-- <img src="/assets/icons/log-out.svg" alt="Log Out"> -->
+          <img src="/assets/icons/log-in.svg" alt="Log In">
         </a>
+      <% } else { %>
+        <a href=/logout>
+          <img src="/assets/icons/log-out.svg" alt="Log Out">
+        </a>
+      <% } %>
     </form>
   </nav>

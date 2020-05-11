@@ -23,6 +23,7 @@ Course.prototype.cleanup = function() {
         keywords: [],
         progress: 0,
         time: 0,
+        certificate: false,
         completed: false
     };
 };
