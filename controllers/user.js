@@ -16,7 +16,8 @@ exports.login = function(req, res) {
     user.login().then(function(result) {
         req.session.user = {
             _id: user.data._id,
-            firstname: user.data.firstname
+            firstname: user.data.firstname,
+            email: user.data.email
         };
         req.session.save(function() {
             res.redirect('/');
@@ -30,9 +31,8 @@ exports.login = function(req, res) {
 };
 
 exports.logout = function(req, res) {
-    req.session.destroy(function() {
-        res.redirect('/');
-    });
+    req.session.destroy();
+        res.redirect('/login');
 };
 
 exports.register = function(req, res) {
@@ -57,5 +57,9 @@ exports.register = function(req, res) {
 };
 
 exports.home = function(req, res) {
-    res.render('home');
+    if (req.session.user) {
+        res.render('home');
+    } else {
+        res.send('You need to log in.');
+    };
 };

@@ -7,6 +7,9 @@ const   express     = require('express'),
         db          = require('./db'),
         app         = express();
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 let sessionOptions = session({
     secret: process.env.APP_SECRET,
     store: new MongoStore({ client: db }),
@@ -20,10 +23,8 @@ let sessionOptions = session({
 app.use(sessionOptions);
 app.use(flash());
 
-const   router      = require('./routes/index');
-
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+// ROUTES
+const router = require('./routes/index');
 
 app.use(express.static('public'));
 
@@ -31,17 +32,5 @@ app.set('views', 'views');
 app.set('view engine', 'ejs');
 
 app.use('/', router);
-
-// app.get('/', function (req, res) {
-//     res.render('home');
-// });
-
-// app.get('/login', function (req, res) {
-//     res.render('login');
-// });
-
-// app.listen(process.env.PORT, function() {
-//     console.log(`Server has started on ${process.env.PORT}.`);
-// });
 
 module.exports = app;

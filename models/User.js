@@ -1,7 +1,6 @@
 const   bcrypt          = require("bcryptjs"),
         validator       = require("validator"),
-        md5             = require("md5"),
-        usersCollection = require("../db").db().collection("users");
+        userCollection  = require("../db").db().collection("users");
 
 let User = function(data) {
     this.data = data;
@@ -62,7 +61,7 @@ User.prototype.validate = function() {
         // only if email is valid --> check to see if it is already taken
         if (validator.isEmail(this.data.email)) {
             // if email is found, email is set, otherwise emailExists = null
-            let emailExists = await usersCollection.findOne({ email: this.data.email });
+            let emailExists = await userCollection.findOne({ email: this.data.email });
             // if emailExists = null, next if statement won't run
             if (emailExists) {
                 this.errors.push("This email is already being used.");
@@ -76,7 +75,7 @@ User.prototype.validate = function() {
 User.prototype.login = function() {
     return new Promise((resolve, reject) => {
         this.cleanup();
-        usersCollection.findOne({ email: this.data.email })
+        userCollection.findOne({ email: this.data.email })
         .then((attemptedUser) => {
             if (attemptedUser && bcrypt.compareSync(this.data.password, attemptedUser.password)) {
                 this.data = attemptedUser;
@@ -99,7 +98,7 @@ User.prototype.register = function() {
             // hash user password
             let salt = bcrypt.genSaltSync(10);
             this.data.password = bcrypt.hashSync(this.data.password, salt);
-            await usersCollection.insertOne(this.data);
+            await userCollection.insertOne(this.data);
             resolve();
         } else {
             reject(this.errors);
