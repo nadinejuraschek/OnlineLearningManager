@@ -9,18 +9,39 @@
         <!-- ADD A COURSE -->
         <div id="add-course-modal" class="modal">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Add A Course</h4>
-                    <h4 class="close-button">&times;</h4>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Hello Modal!
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button>Add</button>
-                </div>
+                <form action="#" class="modal-form">
+                    <div class="modal-header">
+                        <h4>Add A Course</h4>
+                        <div>
+                            <img id="close-button" src="/assets/icons/close.svg" alt="Close Button">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <input 
+                            name="name"
+                            class="form-input"
+                            type="text"
+                            placeholder="Course Name"
+                        >
+                        <input 
+                            name="instructor"
+                            class="form-input"
+                            type="password"
+                            placeholder="Instructor Name"
+                        >
+                        <input 
+                            name="platform"
+                            class="form-input"
+                            type="text"
+                            placeholder="Platform"
+                        >
+                    </div>
+                    <div class="modal-footer">
+                        <button id="add-course-submit" class="icon-button">
+                            <img src="/assets/icons/plus.svg" alt="Add a Course">
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
 

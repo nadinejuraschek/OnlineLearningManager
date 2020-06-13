@@ -3,7 +3,7 @@
 *******************************************/
 const openAddBtn        = document.getElementById("open-add-course-modal");
 const addCourseModal    = document.getElementById("add-course-modal");
-const closeAddBtn       = document.getElementsByClassName("close-button")[0];
+const closeAddBtn       = document.getElementById("close-button");
 
 openAddBtn.addEventListener("click", openAddCourseModal);
 closeAddBtn.addEventListener("click", closeAddCourseModal);
@@ -22,3 +22,13 @@ function closeAddCourseModalOutsideClick(event) {
         addCourseModal.style.display = "none";
     }
 };
+
+/*******************************************
+ PROGRESS BAR
+*******************************************/
+
+// function setProgress() {
+//     if () {
+
+//     }
+// };

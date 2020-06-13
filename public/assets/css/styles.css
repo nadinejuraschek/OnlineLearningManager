@@ -23,8 +23,26 @@ h1, h2, h3, h4 {
   color: #7F939E;
 }
 
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2.25rem;
+}
+
+h4 {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
 p {
     font-size: 1.6rem;
+    line-height: 2rem;
 }
 
 button {
@@ -41,6 +59,17 @@ button.icon-button {
     min-width: 4rem;
     padding: 0.25rem;
     width: 4rem;
+}
+
+input {
+    border: none;
+    border-radius: 10px;
+    display: block;
+    font-size: 1.6rem;
+    padding: 2rem;
+    background-color: #DCE9F1;
+    box-shadow: 1px 1px 8px #ebebeb;
+    margin: 1.25rem auto;
 }
 
 hr { 
@@ -106,6 +135,7 @@ nav {
     background-color: #ffffff;
     border: none;
     border-radius: 10px;
+    box-shadow: 1px 1px 8px #ebebeb;
 }
 
 .course-body {
@@ -142,11 +172,20 @@ nav {
     width: 10%;
 }
 
+.progress {
+    border-radius: 7px;
+    height: 2rem; 
+    width: 100%;
+}
+
+.progress-bar {
+    background-color: #98e79c;
+}
+
 .course-edit-button {
     background-color: #C8E9F0;
     color: #3BC2DE;
 }
-
 
 .course-complete-button {
     background-color: #3BC2DE;
@@ -188,25 +227,22 @@ footer a:hover {
 *******************************************/
 .input-field, 
     .submit-btn {
-        border: none;
-        border-radius: 0.25rem;
-        display: block;
-        font-size: 1.25rem;
-        padding: 1rem;
-        width: 20rem;
+        width: 30rem;
 }
 
 .input-field {
-    background-color: #63C87320;
+    background-color: #DCE9F1;
     box-shadow: 1px 1px 8px #ebebeb;
-    margin: 0.75rem auto;
+    margin: 1.25rem auto;
 }
 
 .submit-btn {
-    background-color: #63C873;
+    background-color: #3BC2DE;
     box-shadow: 1px 1px 8px #ebebeb;
     color: #ffffff;
-    margin: 2rem auto;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1.25rem auto;
 }
 
 /*******************************************
@@ -225,7 +261,7 @@ footer a:hover {
 }
 
 .modal-content {
-    background-color: #ffffff;
+    background-color: #ECF0F3;
     border: none;
     border-radius: 10px;
     box-shadow: 0 5px 8px 0 #393D4920, 7px 0 7px 20px #393D4920;
@@ -265,6 +301,19 @@ footer a:hover {
         text-decoration: none;
     }
 
+#add-course-submit {
+    background-color: #3BC2DE;
+}
+
+.modal-form {
+    margin: 0;
+    padding: 0;
+}
+
+.form-input {
+    width: 100%;
+}
+
 /*******************************************
  KEYFRAMES
 *******************************************/
@@ -286,7 +335,13 @@ footer a:hover {
     .course-body {
         flex-direction: row;
     }
+    .progress {
+        width: 50%;
+    }
     .modal-content {
         width: 70%;
+    }
+    .form-input {
+        width: 60%;
     }
 }
