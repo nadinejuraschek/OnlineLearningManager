@@ -2,7 +2,7 @@ const coursesCollection = require("../db").db().collection("courses");
 
 let Course = function(data) {
     this.data = data;
-    // this.errors = [];
+    this.errors = [];
 };
 
 Course.prototype.cleanup = function() {
@@ -31,8 +31,13 @@ Course.prototype.cleanup = function() {
 Course.prototype.create = function() {
     return new Promise(async (resolve, reject) => {
         this.cleanup();
-        await coursesCollection.insertOne(this.data);
-        resolve();
+
+        if (!this.errors.length) {
+            await coursesCollection.insertOne(this.data);
+            resolve();
+        } else {
+            reject(this.errors);
+        }
     });
 };
 

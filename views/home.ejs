@@ -6,14 +6,32 @@
 <div class="wrapper">
     <div class="inside-wrapper">
         
+        <!-- ADD A COURSE -->
+        <div id="add-course-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Add A Course</h4>
+                    <h4 class="close-button">&times;</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Hello Modal!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button>Add</button>
+                </div>
+            </div>
+        </div>
+
         <div class="welcome content">
-            <div class="title">Welcome back, ______!</div>
+            <h2 class="title">Welcome back, ______!</h2>
         </div>
 
         <%- include('includes/course') -%>
 
-        <button></button>
-    
+        <button id="open-add-course-modal" class="modal-button">Add a Course</button>
+
     </div>
 </div>
 

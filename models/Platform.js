@@ -3,7 +3,7 @@ const   platformsCollection = require("../db").db().collection("platforms"),
 
 let Platform = function(data) {
     this.data = data;
-    // this.errors = [];
+    this.errors = [];
 };
 
 Platform.prototype.cleanup = function() {
@@ -27,7 +27,12 @@ Platform.prototype.cleanup = function() {
 Platform.prototype.create = function() {
     return new Promise(async (resolve, reject) => {
         this.cleanup;
-        await platformsCollection.insertOne(this.data);
-        resolve();
+
+        if (!this.errors.length) {
+            await platformsCollection.insertOne(this.data);
+            resolve();
+        } else {
+            reject(this.errors);
+        }
     });
 };

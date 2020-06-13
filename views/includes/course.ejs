@@ -1,16 +1,32 @@
 <!-- COURSE -->
 <div class="course content">
-    <div class="info">
-        <img src="/assets/icons/youtube.svg">
-        <p class="title">Course Name</p>
-        <p class="instructor">Instructor, Name</p>
-    </div>
-    <!-- <div class="study-time">
-        <div>00:00</div>
-    </div> -->
-    <div class="progress" style="height: 1rem; width: 50%;">
-        <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-            75%
+    <div class="course-body">
+        <div class="platform-icon info-space">
+            <img class="platform-icon" src="/assets/icons/youtube.svg">
+        </div>
+        <div class="info">
+            <h4 class="info-space">Course Name</h4>
+            <p class="instructor info-space">Instructor, Name</p>
+        </div>
+        <!-- <div class="study-time">
+            <div>00:00</div>
+        </div> -->
+        <div class="progress" style="height: 1rem; width: 50%;">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                75%
+            </div>
         </div>
     </div>
+    <hr>
+    <div class="course-footer">
+        <button id="course-edit-button" class="course-edit-button icon-button">
+            <img class="course-icons" src="/assets/icons/edit.svg" alt="Edit Course">
+        </button>
+        <button id="course-complete-button" class="course-complete-button icon-button">
+            <img src="/assets/icons/complete.svg" alt="Complete Course">
+        </button>
+        <button id="course-delete-button" class="course-delete-button icon-button">
+            <img src="/assets/icons/trash.svg" alt="Delete Course">
+        </button>
+    </div> 
 </div>
