@@ -1,38 +1,17 @@
-const   platformsCollection = require("../db").db().collection("platforms"),
-        bookIcon = require("assets/icons/book-open.svg");
+const mongoose = require("mongoose");
 
-let Platform = function(data) {
-    this.data = data;
-    this.errors = [];
-};
+const platformSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [ true, "Please enter a name for the platform." ],
+        unique: [ true, "Platform already exists."],
+        trim: true,
+    },
+    link: {
+        type: String,
+        required: [ true, "Please add a platform link." ],
+        trim: true,
+    },
+});
 
-Platform.prototype.cleanup = function() {
-    if (typeof(this.data.name) != "string") {
-        this.data.name = "";
-    };
-    if (typeof(this.data.icon) != "string") {
-        this.data.icon = bookIcon;
-    };
-    if (typeof(this.data.link) != "string") {
-        this.data.link = "";
-    };
-
-    this.data = {
-        name: this.data.name.trim(),
-        icon: this.data.icon,
-        link: this.data.link.trim()
-    };
-};
-
-Platform.prototype.create = function() {
-    return new Promise(async (resolve, reject) => {
-        this.cleanup;
-
-        if (!this.errors.length) {
-            await platformsCollection.insertOne(this.data);
-            resolve();
-        } else {
-            reject(this.errors);
-        }
-    });
-};
+module.exports = mongoose.model("Platform", platformSchema);

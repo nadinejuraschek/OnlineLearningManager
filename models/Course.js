@@ -1,44 +1,36 @@
-const coursesCollection = require("../db").db().collection("courses");
+const mongoose = require("mongoose");
 
-let Course = function(data) {
-    this.data = data;
-    this.errors = [];
-};
+const courseSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [ true, "Please enter a name for the course." ],
+        unique: [ true, "Course has already been added."],
+        trim: true,
+    },
+    instructor: {
+        type: String,
+        trim: true,
+    },
+    platform: {
+        type: String,
+        required: [ true, "Please add a platform." ],
+        trim: true,
+    },
+    keywords: {
+        type: Array,
+    },
+    progress: {
+        type: Number,
+        required: [ true, "Please add your progress."],
+    },
+    certificate: {
+        type: Boolean,
+    },
+    link: {
+        type: String,
+        required: [ true, "Please add a course link." ],
+        trim: true,
+    },
+});
 
-Course.prototype.cleanup = function() {
-    if (typeof(this.data.name != "string")) {
-        this.data.name = "";
-    };
-    if (typeof(this.data.instructor != "string")) {
-        this.data.instructor = "";
-    };
-    if (typeof(this.data.platform != "string")) {
-        this.data.platform = ""; 
-    };
-
-    this.data = {
-        name: this.data.name.trim(),
-        instructor: this.data.instructor.trim(),
-        platform: this.data.platform.trim(),
-        keywords: [],
-        progress: 0,
-        time: 0,
-        certificate: false,
-        completed: false
-    };
-};
-
-Course.prototype.create = function() {
-    return new Promise(async (resolve, reject) => {
-        this.cleanup();
-
-        if (!this.errors.length) {
-            await coursesCollection.insertOne(this.data);
-            resolve();
-        } else {
-            reject(this.errors);
-        }
-    });
-};
-
-module.exports = Course;
+module.exports = mongoose.model("Course", courseSchema);

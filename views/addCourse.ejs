@@ -1,0 +1,60 @@
+<%- include('includes/header') -%>
+
+<%- include('includes/nav') -%>
+
+<!-- MAIN CONTENT -->
+<div class="wrapper">
+    <div class="inside-wrapper">
+
+        <h2 class="primary-title">Add a Course</h2>
+        <form action="/courses/new" method="POST" class="auth">
+            <input
+                name="course"
+                class="input-field"
+                type="text"
+                placeholder="Name"
+            >
+            <input
+                name="instructor"
+                class="input-field"
+                type="text"
+                placeholder="Instructor"
+            >
+            <input
+                name="platform"
+                class="input-field"
+                type="text"
+                placeholder="Select Platform"
+            >
+            <input
+                name="keywords"
+                class="input-field"
+                type="text"
+                placeholder="Keywords"
+            >
+            <input
+                name="progress"
+                class="input-field"
+                type="float"
+                placeholder="Progress"
+            >
+            <input
+                name="certificate"
+                class="input-field"
+                type="boolean"
+                placeholder="Certificate included?"
+            >
+            <input
+                name="link"
+                class="input-field"
+                type="text"
+                placeholder="Link to Course"
+            >
+            <button type="submit" class="submit-btn">
+                Add
+            </button>
+        </form>
+    </div>
+</div>
+
+<%- include('includes/footer') -%>

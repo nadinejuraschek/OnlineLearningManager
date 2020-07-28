@@ -1,0 +1,30 @@
+<%- include('includes/header') -%>
+
+<%- include('includes/nav') -%>
+
+<!-- MAIN CONTENT -->
+<div class="wrapper">
+    <div class="inside-wrapper">
+
+        <h2 class="primary-title">Add a Platform</h2>
+        <form action="/platforms/new" method="POST" class="auth">
+            <input
+                name="platform"
+                class="input-field"
+                type="text"
+                placeholder="Name"
+            >
+            <input
+                name="link"
+                class="input-field"
+                type="text"
+                placeholder="Link to Homepage"
+            >
+            <button type="submit" class="submit-btn">
+                Add
+            </button>
+        </form>
+    </div>
+</div>
+
+<%- include('includes/footer') -%>
